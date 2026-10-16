@@ -35,6 +35,16 @@ con doble clic y funciona.
 - El pintado se hace con DOM nativo desde `pintar()`; se llama al cargar y tras cada guardado.
 - Sin sistema de módulos (todo global en un solo `<script>`), sin transpilación.
 
+## Equipo multiagente (SDD)
+
+Cuatro subagentes en `.opencode/agents/` (se invocan pidiéndolos por nombre, p. ej.
+"usa el subagente planner"): `coordinator` (orquesta el flujo sin tocar nada),
+`planner` (escribe `plan.md`/`tasks.md`, solo puede editar `specs/**` y `docs/**`),
+`implementer` (ejecuta tasks en los 3 archivos de la app y las va marcando) y
+`reviewer` (auditor QA: verifica criterios, corre tests con Chromium y dictamina
+APTO/RECHAZADO; no puede editar). Comandos de apoyo: `/spec <nombre>` (nueva spec) y
+`/revisar` (auditoría). El commit y push siempre los decide el usuario tras el APTO.
+
 ## Cómo probar
 
 Abrir `index.html` en el navegador (doble clic). No hay comandos de build, test ni lint.

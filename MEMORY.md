@@ -27,6 +27,11 @@ Registro del estado del proyecto para futuras sesiones. Sin secretos.
   (estado: propuesta, pendiente de ejecutar las tasks) y `tests/` con `.gitkeep`.
   Spec 001 = sustituir la validación nativa por JS con mensajes en español (`novalidate`).
 
+- **Equipo multiagente SDD** (2026-10-16): subagentes en `.opencode/agents/`
+  (coordinator/planner/implementer/reviewer con permisos de rol) + comandos
+  `/spec` y `/revisar` en `.opencode/commands/`. Requiere reiniciar OpenCode para
+  descubrirlos. Flujo: coordinator → planner → implementer → reviewer → commit del usuario.
+
 ## Pendiente / avisos
 
 - **Rotar el token GitHub** (`ghp_…`): apareció en texto plano en `opencode.json`,
