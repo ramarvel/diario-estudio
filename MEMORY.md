@@ -22,6 +22,11 @@ Registro del estado del proyecto para futuras sesiones. Sin secretos.
 - Skill `frontend-design` de anthropics/skills instalada en `.agents/skills/`
   (+ `skills-lock.json`). Requiere reiniciar OpenCode para cargarla.
 
+- **Estructura SDD adoptada** (2026-10-16): `docs/constitution.md` (redactada: 8 reglas
+  duras + flujo SDD), `specs/001-validacion-formulario/` con spec/plan/tasks **redactados**
+  (estado: propuesta, pendiente de ejecutar las tasks) y `tests/` con `.gitkeep`.
+  Spec 001 = sustituir la validación nativa por JS con mensajes en español (`novalidate`).
+
 ## Pendiente / avisos
 
 - **Rotar el token GitHub** (`ghp_…`): apareció en texto plano en `opencode.json`,
