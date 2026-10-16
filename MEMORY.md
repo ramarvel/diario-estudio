@@ -15,8 +15,10 @@ Registro del estado del proyecto para futuras sesiones. Sin secretos.
 - Probada en Chromium real con `puppeteer-core` (script en `/tmp/opencode/diario-test/`):
   3 sesiones → racha 3 / mejor 3; escenario con hueco → mejor 4; consola sin errores.
   Capturas de prueba en `capturas/` (375 px).
-- Repositorio público creado: https://github.com/ramarvel/diario-estudio (rama `main`,
-  commit inicial "Initial commit: Diario de Estudio con racha actual y mejor racha").
+- Repositorio público creado: https://github.com/ramarvel/diario-estudio (rama `main`).
+  Commits: `a68c366` inicial; `ad8705a` diseño renovado + skill + MEMORY.md. Todo el
+  proyecto está sincronizado con el remoto; solo quedan sin trackear `opencode.json` y
+  `git_token.txt` (a propósito, por el token).
 - Skill `frontend-design` de anthropics/skills instalada en `.agents/skills/`
   (+ `skills-lock.json`). Requiere reiniciar OpenCode para cargarla.
 
