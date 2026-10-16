@@ -1,3 +1,14 @@
+/* ===== Tokens ===== */
+:root {
+  --papel: #edeff5;        /* fondo de página */
+  --hoja: #ffffff;         /* la hoja donde vive todo */
+  --tinta: #16213e;        /* texto principal, tinta azul-negra */
+  --tinta-suave: #5a6480;  /* texto secundario */
+  --boligrafo: #2e4bc6;    /* acento: botones, minutos, foco */
+  --resaltador: #ffe95a;   /* el único momento valiente */
+  --linea: #dde2ec;        /* reglas y bordes */
+}
+
 /* ===== Base ===== */
 * {
   box-sizing: border-box;
@@ -6,117 +17,184 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background: #f2f4f8;
-  color: #1f2937;
-  line-height: 1.5;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--papel);
+  color: var(--tinta);
+  line-height: 1.55;
   padding: 16px;
+  -webkit-font-smoothing: antialiased;
 }
 
 .contenedor {
-  max-width: 560px;
+  max-width: 34rem;
   margin: 0 auto;
+}
+
+/* Una sola hoja con los bloques separados por reglas */
+.hoja {
+  background: var(--hoja);
+  border: 1px solid var(--linea);
+  border-radius: 20px;
+  padding: clamp(1.25rem, 5vw, 2.25rem);
 }
 
 /* ===== Cabecera ===== */
 .cabecera {
-  text-align: center;
-  margin-bottom: 20px;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--linea);
+  margin-bottom: 1.25rem;
 }
 
 .cabecera h1 {
-  font-size: 1.6rem;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-size: 1.45rem;
+  font-weight: 700;
 }
 
 /* ===== Racha ===== */
 .racha {
-  background: linear-gradient(135deg, #ff7a45, #ff4d4f);
-  color: #fff;
-  border-radius: 16px;
-  text-align: center;
-  padding: 24px 16px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(255, 77, 79, 0.3);
+  text-align: left;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--linea);
+  margin-bottom: 1.5rem;
 }
 
 .racha-numero {
-  font-size: 3rem;
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
   font-weight: 700;
+  font-size: clamp(3.25rem, 16vw, 4.5rem);
+  line-height: 1;
+  padding: 0 0.1em;
+}
+
+/* El trazo de resaltador: un solo gesto, al cargar */
+.racha-numero::before {
+  content: "";
+  position: absolute;
+  left: -0.08em;
+  right: -0.08em;
+  top: 0.16em;
+  bottom: 0.06em;
+  background: var(--resaltador);
+  border-radius: 0.18em 0.3em 0.22em 0.16em;
+  transform: skew(-4deg) rotate(-1.2deg);
+  transform-origin: left center;
+  z-index: -1;
+  animation: marcar 550ms ease-out both;
+}
+
+@keyframes marcar {
+  from {
+    transform: skew(-4deg) rotate(-1.2deg) scaleX(0);
+  }
+  to {
+    transform: skew(-4deg) rotate(-1.2deg) scaleX(1);
+  }
 }
 
 .racha-fuego {
-  font-size: 2.4rem;
+  font-size: 2rem;
+  margin-left: 0.15em;
 }
 
 .racha-texto {
-  margin-top: 4px;
+  margin-top: 0.6rem;
   font-size: 1rem;
+  color: var(--tinta-suave);
 }
 
 .racha-mejor {
-  margin-top: 12px;
-  font-size: 0.9rem;
-  opacity: 0.9;
+  margin-top: 0.9rem;
+  font-size: 0.95rem;
+  color: var(--tinta-suave);
 }
 
-/* ===== Tarjetas ===== */
-.tarjeta {
-  background: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+/* ===== Secciones ===== */
+.formulario {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--linea);
+  margin-bottom: 1.5rem;
 }
 
-.tarjeta h2 {
-  font-size: 1.2rem;
-  margin-bottom: 14px;
+.cabecera h1,
+.sesiones h2,
+.formulario h2 {
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  font-weight: 700;
+}
+
+.formulario h2,
+.sesiones h2 {
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
 }
 
 /* ===== Formulario ===== */
 .campo {
-  margin-bottom: 14px;
+  margin-bottom: 0.9rem;
 }
 
 .campo label {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 0.3rem;
+  color: var(--tinta);
 }
 
 .campo input {
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #d1d5db;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--linea);
   border-radius: 8px;
+  background: var(--hoja);
+  color: var(--tinta);
   font-size: 1rem;
 }
 
-.campo input:focus {
-  outline: 2px solid #4f6ef7;
-  border-color: transparent;
+.campo input::placeholder {
+  color: var(--tinta-suave);
+}
+
+.campo input:focus-visible {
+  outline: 2px solid var(--boligrafo);
+  outline-offset: 1px;
+  border-color: var(--boligrafo);
 }
 
 button {
   width: 100%;
-  padding: 12px;
+  margin-top: 0.25rem;
+  padding: 0.7rem;
   border: none;
   border-radius: 8px;
-  background: #4f6ef7;
+  background: var(--boligrafo);
   color: #fff;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  transition: background 150ms ease;
+}
+
+button:hover {
+  background: #243ca8;
 }
 
 button:active {
-  background: #3c58d6;
+  background: #1d3190;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--boligrafo);
+  outline-offset: 2px;
 }
 
 .aviso {
-  margin-top: 10px;
-  color: #dc2626;
+  margin-top: 0.75rem;
+  color: #c62828;
   font-size: 0.9rem;
 }
 
@@ -129,12 +207,13 @@ button:active {
   display: flex;
   justify-content: space-between;
   gap: 12px;
-  padding: 12px 0;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--linea);
 }
 
 .lista li:last-child {
   border-bottom: none;
+  padding-bottom: 0;
 }
 
 .item-tema {
@@ -143,17 +222,27 @@ button:active {
 
 .item-fecha {
   font-size: 0.85rem;
-  color: #6b7280;
+  color: var(--tinta-suave);
 }
 
 .item-minutos {
   white-space: nowrap;
-  font-weight: 600;
-  color: #4f6ef7;
+  font-weight: 700;
+  color: var(--boligrafo);
 }
 
 .vacio {
-  color: #6b7280;
-  text-align: center;
-  padding: 10px 0;
+  color: var(--tinta-suave);
+  padding: 0.25rem 0;
+}
+
+/* ===== Accesibilidad ===== */
+@media (prefers-reduced-motion: reduce) {
+  .racha-numero::before {
+    animation: none;
+  }
+
+  button {
+    transition: none;
+  }
 }

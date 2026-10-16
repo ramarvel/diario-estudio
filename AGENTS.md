@@ -50,3 +50,6 @@ mejor racha debe quedar en el tramo más largo.
 - Errores de validación: un único aviso en rojo bajo el formulario.
 - La "mejor racha" no guarda fecha del tramo récord ni desempata rachas iguales: solo
   muestra el número de días máximo.
+
+## Limites
+  ✅ Siempre: actualizar `MEMORY.md` al terminar cada tarea
