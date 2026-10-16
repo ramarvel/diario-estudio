@@ -29,8 +29,16 @@ Registro del estado del proyecto para futuras sesiones. Sin secretos.
 
 - **Equipo multiagente SDD** (2026-10-16): subagentes en `.opencode/agents/`
   (coordinator/planner/implementer/reviewer con permisos de rol) + comandos
-  `/spec` y `/revisar` en `.opencode/commands/`. Requiere reiniciar OpenCode para
-  descubrirlos. Flujo: coordinator → planner → implementer → reviewer → commit del usuario.
+  `/spec` y `/revisar` en `.opencode/commands/`. **Confirmado registrado** tras
+  reiniciar OpenCode y abrir sesión nueva (verificado con `opencode api get /api/agent`).
+  Flujo: coordinator → planner → implementer → reviewer → commit del usuario.
+  **La spec 001 aún NO se ha ejecutado con el equipo**: siguiente paso del proyecto.
+- Infra de pruebas previa en `/tmp/opencode/diario-test/` (puppeteer-core + Chromium
+  /usr/bin/chromium, referencia en capturas.js/test.js). Ojo: en headless,
+  `waitForFunction` con polling raf puede colgarse → usar sondeo manual con
+  evaluate + setTimeout. El implementer recreará el test dentro de `tests/`.
+- Token de GitHub **rotado el 2026-10-16** (el antiguo revocado; el nuevo solo está en
+  `opencode.json`). `git_token.txt` sigue en la raíz: borrarlo cuando quieras.
 
 ## Pendiente / avisos
 
