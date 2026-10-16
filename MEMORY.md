@@ -4,6 +4,11 @@ Registro del estado del proyecto para futuras sesiones. Sin secretos.
 
 ## Estado (2026-10-16)
 
+- **📍 Ubicación canónica: `/home/ramon/projects/diario-estudio` (disco Linux local).**
+  Decisión del usuario tras el incidente de la microSD: NO trabajar desde
+  `/mnt/shared/removable/...`. La microSD quedó con errores de E/S, objetos git
+  corruptos y un directorio zombi `Ramon/proyectos/diario-estudio` que el usuario
+  debe borrar desde su gestor de archivos (contiene `git_token.txt` ilegible).
 - **Diseño renovado** siguiendo la skill `frontend-design` (`.agents/skills/`): una sola
   "hoja" blanca con bloques separados por reglas (sin kit de tarjetas ni gradientes),
   paleta tinta azul-negra + azul bolígrafo + amarillo resaltador, Georgia para títulos y
